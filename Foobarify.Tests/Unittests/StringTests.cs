@@ -29,5 +29,29 @@ namespace Foobarify.Tests.Unittests
 
             Assert.AreEqual(shouldBe, isString);
         }
+
+        [TestMethod]
+        public void FoobarifyStringMiddleUpperNOTCasePreserved()
+        {
+            var originalString = "hej hej nej oO oj oj";
+
+            var shouldBe = "hej hej nej FOOojBAR FOOojBAR FOOojBAR";
+
+            var isString = originalString.FooBarify();
+
+            Assert.AreNotEqual(shouldBe, isString);
+        }
+
+        [TestMethod]
+        public void FoobarifyStringAddsPrefixAndSuffix()
+        {
+            var originalString = "hej hej nej oO oj oj";
+
+            var shouldBe = "<span>hej hej nej FOOojBAR FOOojBAR FOOojBAR</span>";
+
+            var isString = originalString.FooBarify("<span>, </span>");
+
+            Assert.AreNotEqual(shouldBe, isString);
+        }
     }
 }
