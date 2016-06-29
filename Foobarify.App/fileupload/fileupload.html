@@ -1,0 +1,26 @@
+<div ng-controller="FileuploadCtrl">
+<header id="top" class="header" ng-show="foobarText === ''">
+    <div class="text-vertical-center">
+        <h1>Foobarify your file!</h1>
+        <h3>Presis edition</h3>            
+        <form id="fileform" name="fileform" method="post" enctype="multipart/form-data" ng-model='formModel' ng-submit='submitForm()'>
+          <fieldset class="form-group">
+            <input type="file" file-model="file" class="display-inline-block btn btn-default btn-file">                
+            </input>
+          </fieldset>
+          <div class="control-group" ng-attr-class="{{errorMsg != '' && 'has-error' || '' }}">
+            <label class="control-label" for="inputError">{{errorMsg}}</label>
+            <fieldset class="form-group">
+            <input class="btn btn-dark btn-lg" type='submit' value="Foobarify" />
+          </fieldset>
+          </div>
+          
+        </form>
+    </div>
+</header>
+
+<div class="col-lg-offset-2 col-lg-8 text-center">
+    <p style="white-space: pre-line" ng-bind-html="trustAsHtml(foobarText)"></p>
+</div>
+
+
